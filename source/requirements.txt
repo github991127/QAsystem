@@ -1,0 +1,8 @@
+xlrd
+re
+jieba
+math
+time
+os
+re
+PySide2

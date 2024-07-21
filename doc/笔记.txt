@@ -1,0 +1,10 @@
+●xlrd对excel的read
+https://www.cnblogs.com/programmer-tlh/p/10462664.html
+●re正则表达式
+https://www.cnblogs.com/shenjianping/p/11647473.html
+●jieba中文分词
+https://www.cnblogs.com/During/p/10830816.html
+此模块支持三种分词模式
+精确模式（试图将句子最精确的切开，适合文本分析）
+全模式（把句子在所有可以成词的成语都扫描出来，速度非常快，但是不能解决歧义的问题）
+搜索引擎模式（在精确模式的基础上，对长词再次切分，提高召回率）

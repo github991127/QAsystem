@@ -1,0 +1,28 @@
+⚫●○■□★█
+https://www.cnblogs.com/hufulinblog/p/9953255.html
+fit_transform：
+	学习词汇字典并转换为矩阵。等同于先调用fit，再调用transform，不过更有效率。
+	返回向量矩阵。[n_samples, n_features]。行表示文档，列表示特征。
+
+https://www.cnblogs.com/liqiang521/p/9628816.html
+词频（TF）=某个词在文章中的出现次数文章的总词数或者词频（TF）=某个词在文章中的出现次数该训练文本中出现最多次的词数词频（TF）=某个词在文章中的出现次数文章的总词数或者词频（TF）=某个词在文章中的出现次数该训练文本中出现最多次的词数
+逆文档频率(IDF)=log(总样本数包含有该词的文档数+1)逆文档频率(IDF)=log⁡(总样本数包含有该词的文档数+1)
+如果一个词越常见，那么分母就越大，逆文档频率就越小越接近0。分母之所以要加1，是为了避免分母为0（即所有文档都不包含该词）。log表示对得到的值取对数（此处为自然对数）。
+
+def cosAB(listA, listB):
+    resulttfdif = []
+    listA=listA[0]
+    for i in range(len(listB)):
+        Molecular, denominatorA, denominatorB, denominator = 0, 1, 1, 0#分子，分母A，分母B，分母
+        for j in range(len(listA)):
+            listA[j] = float(listA[j])
+            listB[i][j] = float(listB[i][j])
+            # print('A和B',listA[j],listB[i][j])
+            Molecular = Molecular + (listA[j] * listB[i][j])
+            # print(Molecular,'\n')
+            denominatorA += listA[j] * listA[j]
+            denominatorB += listB[i][j] * listB[i][j]
+        denominator = Molecular / (math.sqrt(denominatorA) * math.sqrt(denominatorB))# 【AB乘积和】/【1+A乘积和 开方】【1+B乘积和 开方】
+        resulttfdif.append(denominator)# 与listB[i]的匹配度
+    #print('cos-result:',resulttfdif)
+    return resulttfdif
